@@ -16,8 +16,8 @@ class YazilarModel(models.Model):
 
     class Meta:
         db_table='yazi'
-        verbose_name_plural="Yazlar"
-        verbose_name="Yazılar"
+        verbose_name_plural="Yazılar"
+        verbose_name="Yazı"
     
     def __str__(self):
         return self.baslik
