@@ -2,10 +2,11 @@ from django.db import models
 from autoslug import AutoSlugField
 from blog.models import KategoriModel
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 class YazilarModel(models.Model):
     baslik=models.CharField(max_length=50,blank=False,null=False)
-    icerik=models.TextField()
+    icerik=RichTextField()
     olusturmaTarihi=models.DateTimeField(auto_now_add=True)
     duzenlemeTarihi=models.DateTimeField(auto_now=True)
     slug=AutoSlugField(populate_from='baslik',unique=True)
