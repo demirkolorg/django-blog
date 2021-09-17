@@ -12,7 +12,7 @@ class YazilarModel(models.Model):
     slug=AutoSlugField(populate_from='baslik',unique=True)
     kategoriler=models.ManyToManyField(KategoriModel,related_name='yazi')
     resim=models.ImageField(upload_to='yazi_resimleri')
-    yazar=models.ForeignKey(User, on_delete=models.CASCADE, related_name='yazilar')
+    yazar=models.ForeignKey('account.CustomUserModel', on_delete=models.CASCADE, related_name='yazilar')
 
     class Meta:
         db_table='yazi'
