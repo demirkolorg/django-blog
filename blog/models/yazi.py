@@ -3,12 +3,11 @@ from autoslug import AutoSlugField
 from blog.models import KategoriModel
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
+from blog.models.abstract_model import DateAbstractModel
 
-class YazilarModel(models.Model):
+class YazilarModel(DateAbstractModel):
     baslik=models.CharField(max_length=50,blank=False,null=False)
     icerik=RichTextField()
-    olusturmaTarihi=models.DateTimeField(auto_now_add=True)
-    duzenlemeTarihi=models.DateTimeField(auto_now=True)
     slug=AutoSlugField(populate_from='baslik',unique=True)
     kategoriler=models.ManyToManyField(KategoriModel,related_name='yazi')
     resim=models.ImageField(upload_to='yazi_resimleri')
